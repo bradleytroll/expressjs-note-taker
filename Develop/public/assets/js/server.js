@@ -11,8 +11,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'))
 
 
-app.get('/notes', (req, res) => {
-    res.sendFile(path.join(__dirname, '/public/notes.html'));
+app.get('/api/notes', (req, res) => {
+    res.sendFile(path.join(__dirname, 'Develop/public/notes.html'));
 });
 
 app.get('*', (req, res) => {
@@ -34,7 +34,7 @@ app.post('/api/notes', (req, res) => {
         const notes = JSON.parse(data);
         notes.push(newNote);
         
-        fs.writeFile(path.join(__dirname, '/db/db.json'), JSON.stringify(notes), err => {
+        fs.writeFile(path.join(__dirname, '/db/db.json'), JSON.stringify(notes) err => {
             if (err) throw err;
             res.json(newNote)
         })

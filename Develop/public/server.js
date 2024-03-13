@@ -1,29 +1,21 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
-const { v4: uuidv4 } = require('uuid')
+const { v4: uuidv4 } = require('uuid');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = 3001;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'))
+app.use(express.static('public'));
 
-
-app.get('/api/notes', (req, res) => {
-    res.sendFile(path.join(__dirname, 'Develop/public/notes.html'));
-});
-
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '/public/index.html'))
-});
-
+// Corrected to serve notes data, not index.html
 app.get('/api/notes', (req, res) => {
     fs.readFile(path.join(__dirname, '/db/db.json'), 'utf8', (err, data) => {
         if (err) throw err;
-        res.json(JSON.parse(data))
-    })
+        res.json(JSON.parse(data));
+    });
 });
 
 app.post('/api/notes', (req, res) => {
@@ -34,12 +26,11 @@ app.post('/api/notes', (req, res) => {
         const notes = JSON.parse(data);
         notes.push(newNote);
         
-        fs.writeFile(path.join(__dirname, '/db/db.json'), JSON.stringify(notes) err => {
+        fs.writeFile(path.join(__dirname, 'Develop/db/db.json'), JSON.stringify(notes), err => {
             if (err) throw err;
-            res.json(newNote)
-        })
-        })
-
+            res.json(newNote);
+        });
+    });
 });
 
 app.delete('/api/notes/:id', (req, res) => {
@@ -52,11 +43,16 @@ app.delete('/api/notes/:id', (req, res) => {
 
         fs.writeFile(path.join(__dirname, '/db/db.json'), JSON.stringify(notes), err => {
             if (err) throw err;
-            res.json({ message: 'Deleted note'})
-        })
-    })
+            res.json({ message: 'Deleted note' });
+        });
+    });
+});
+
+// Catch-all route to serve the main page
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.listen(PORT, () => {
-    console.log(`Server listening on PORT ${PORT}`)
+    console.log(`Server listening on PORT ${PORT}`);
 });

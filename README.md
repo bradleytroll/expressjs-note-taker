@@ -7,6 +7,7 @@
 - [Credits](#credits)
 - [How to Contribute](#how-to-contribute)
 - [GitHub Repo](#github-repo)
+- [Deployed Site](#deployed-site)
 
 ## Installation
 
@@ -57,3 +58,8 @@ Thie source code for this applicaiton is available at:
 
 https://github.com/bradleytroll/expressjs-note-taker
 
+## Deployed Site
+
+The deplyed site is available at: 
+
+https://bradleytroll.github.io/expressjs-note-taker/

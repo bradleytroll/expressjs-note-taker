@@ -35,9 +35,9 @@ By default, the applicaiton will be available at `http://localhost:3001`. You ca
 - To View Notes: Click on any note in the list to view its content.
 - To Delete a Note: Click on the trash can icon next to the note you wish to delete.
 
-<img src="./assets/inquirer-questions.png" alt="Inquirer Questions" width="600" height="auto">
-<img src="./assets/generated-logo-code.png" alt="Generated Code" width="600" height="auto">
-<img src="./assets/rendered-logo.png" alt="Rendered Logo" width="600" height="auto">
+<img src="./public/assets/screenshots/note-taker-main.png" alt="Note Taker Main Page" width="600" height="auto">
+<img src="./public/assets/screenshots/note-taker-new-note.png" alt="Note Taker New Note" width="600" height="auto">
+<img src="./public/assets/screenshots/note-taker-previous-note.png" alt="Note Taker Previous Note" width="600" height="auto">
 
 ## Credits
 

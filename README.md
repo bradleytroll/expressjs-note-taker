@@ -62,4 +62,5 @@ https://github.com/bradleytroll/expressjs-note-taker
 
 The deplyed site is available at: 
 
-https://bradleytroll.github.io/expressjs-note-taker/
+https://sheltered-everglades-77074-f08387382dc7.herokuapp.com/
+
